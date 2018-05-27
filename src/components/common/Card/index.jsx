@@ -1,34 +1,28 @@
 import React, { Component } from 'react'
+import CardImage from './CardImage'
 
 import { CardContent, CardMedia } from './style'
 
 const Card = ({ data }) => (
     <div className="card" style={{ margin: '1rem' }}>
-        <div className="card-image">
+        {/* <CardImage className="card-image">
             <figure className="image is-4by3">
-                <img
-                    src="https://bulma.io/images/placeholders/1280x960.png"
-                    alt="Placeholder image1"
-                />
+                <img src={data.images[0]} alt={data.name} />
             </figure>
-        </div>
+            <span className="icon wish is-medium" onClick={() => }>
+                <i className="fa fa-heart" />
+            </span>
+        </CardImage> */}
+        <CardImage imgSrc={data.images} imgName={data.name} />
         <div className="card-content">
             <CardMedia className="media">
-                <div className="media-left">
-                    <figure className="image is-48x48">
-                        <img
-                            src="https://bulma.io/images/placeholders/96x96.png"
-                            alt="Placeholder image2"
-                        />
-                    </figure>
-                </div>
                 <div className="media-content">
                     <p className="title is-4">{data.name}</p>
-                    <p className="subtitle is-6">{data.harga}</p>
+                    <p className="subtitle is-6">Rp {data.price}</p>
                 </div>
-                {data.stocks.size && (
+                {/* {data.stocks.size && (
                     <span className="tag is-light">{data.stocks.size.join(', ')}</span>
-                )}
+                )} */}
             </CardMedia>
 
             <CardContent>
@@ -44,7 +38,7 @@ const Card = ({ data }) => (
                             />
                         ))}
                 </div>
-                <a className="button is-danger">Danger</a>
+                <a className="button is-danger">Beli</a>
             </CardContent>
         </div>
     </div>

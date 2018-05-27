@@ -19,3 +19,14 @@ export const CardMedia = styled.div`
         bottom: 0;
     }
 `
+
+export const CardImageContent = styled.div`
+    position: relative;
+
+    > .icon.wish {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: 0.1s all;
+    }
+`
