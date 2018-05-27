@@ -1,47 +1,67 @@
 import React, { Component } from 'react'
+
+import { RadioInput, Rate } from '../../common'
 import CardImage from './CardImage'
+import CardMedia from './CardMedia'
+import { CardContent } from './style'
 
-import { CardContent, CardMedia } from './style'
-
-const Card = ({ data }) => (
-    <div className="card" style={{ margin: '1rem' }}>
-        {/* <CardImage className="card-image">
-            <figure className="image is-4by3">
-                <img src={data.images[0]} alt={data.name} />
-            </figure>
-            <span className="icon wish is-medium" onClick={() => }>
-                <i className="fa fa-heart" />
-            </span>
-        </CardImage> */}
-        <CardImage imgSrc={data.images} imgName={data.name} />
-        <div className="card-content">
-            <CardMedia className="media">
-                <div className="media-content">
-                    <p className="title is-4">{data.name}</p>
-                    <p className="subtitle is-6">Rp {data.price}</p>
+class Card extends Component {
+    state = {
+        isBuying: false,
+    }
+    render() {
+        const { data, detailed } = this.props
+        return (
+            <div className="card" style={{ margin: '1rem' }}>
+                <CardImage
+                    imgSrc={data.images}
+                    imgName={data.name}
+                    canBeTried={data.can_be_tried}
+                    slug={data.slug}
+                    hasSlider={detailed}
+                />
+                <div className="card-content is-paddingless">
+                    <CardMedia className="media" data={data} hasDescription={detailed} />
+                    {/* If user click 'Beli', show the input */}
+                    <CardContent>
+                        {this.state.isBuying ? (
+                            <div className="notification">
+                                <button
+                                    className="delete"
+                                    onClick={() => this.setState({ isBuying: false })}
+                                />
+                                <RadioInput
+                                    title="Warna yang bisa kamu pilih"
+                                    inputs={data.stocks.colors}
+                                    name="productColor"
+                                />
+                                {data.stocks.sizes.length > 0 && (
+                                    <RadioInput
+                                        title="Size yang bisa kamu pilih"
+                                        inputs={data.stocks.sizes}
+                                        name="productSize"
+                                    />
+                                )}
+                                <button className="button is-danger">Beli</button>
+                            </div>
+                        ) : (
+                            <React.Fragment>
+                                <Rate countOfStars={data.rate} />
+                                <button
+                                    className="button is-danger"
+                                    onClick={() => this.setState({ isBuying: true })}>
+                                    Beli
+                                </button>
+                            </React.Fragment>
+                        )}
+                    </CardContent>
                 </div>
-                {/* {data.stocks.size && (
-                    <span className="tag is-light">{data.stocks.size.join(', ')}</span>
-                )} */}
-            </CardMedia>
+            </div>
+        )
+    }
+}
 
-            <CardContent>
-                <div className="rate">
-                    {Array.apply(null, { length: 5 })
-                        .map(Number.call, Number)
-                        .map((v, index) => (
-                            <span
-                                key={index}
-                                className={`fa fa-star ${
-                                    index + 1 <= data.rate ? 'rate__checked' : ''
-                                }`}
-                            />
-                        ))}
-                </div>
-                <a className="button is-danger">Beli</a>
-            </CardContent>
-        </div>
-    </div>
-)
-
+Card.defaultProps = {
+    data: {},
+}
 export default Card

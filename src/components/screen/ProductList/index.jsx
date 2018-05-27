@@ -3,7 +3,7 @@ import { Card } from '../../common'
 
 import { getProductData } from '../../../utils/api'
 
-import { ProductListWrapper } from './style'
+import { ContentWrapper } from '../style'
 
 class ProductList extends Component {
     state = {
@@ -32,19 +32,28 @@ class ProductList extends Component {
             }))
         }
     }
+
     _handleScroll = () => {
-        if (window.pageYOffset >= this.wrapper.offsetHeight - 1000 && !this.state.loading) {
-            console.log('get dong')
+        if (window.pageYOffset >= this.wrapper.offsetHeight - 1200 && !this.state.loading) {
             this.getProductList()
         }
     }
 
+    _renderLoadingSpinner = () => (
+        <div className="columns is-centered">
+            <span className="icon is-large">
+                <i className="fa fa-circle-o-notch fa-pulse fa-2x has-text-danger" />
+            </span>
+        </div>
+    )
+
     render() {
         return (
             <React.Fragment>
-                <ProductListWrapper innerRef={(wrapper) => (this.wrapper = wrapper)}>
+                <ContentWrapper innerRef={(wrapper) => (this.wrapper = wrapper)}>
                     {this.state.product.map((item) => <Card key={item.id} data={item} />)}
-                </ProductListWrapper>
+                    {this.state.page > 1 && this.state.loading && this._renderLoadingSpinner()}
+                </ContentWrapper>
             </React.Fragment>
         )
     }

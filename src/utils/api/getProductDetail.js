@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { productDataURL } from '../../constants/api'
 
-const getProductData = (page, limit) => {
+const getProductDetail = (slug) => {
     return axios
-        .get(`${productDataURL}?_page=${page}&_limit=${limit}`)
+        .get(`${productDataURL}/${slug}`)
         .then((response) => response)
         .catch((err) => err.response)
 }
 
-export default getProductData
+export default getProductDetail

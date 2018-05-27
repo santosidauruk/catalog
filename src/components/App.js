@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { ProductList } from './screen'
+import { ProductList, ProductDetail, NotFound } from './screen'
 import '../styles/main.css'
 
 class App extends Component {
@@ -9,7 +9,8 @@ class App extends Component {
         return (
             <Switch>
                 <Route exact path="/" component={ProductList} />
-                {/* <Route path="/:productName" component={DetailProduct} /> */}
+                <Route exact path="/:productSlug" component={ProductDetail} />
+                <Route component={NotFound} />
             </Switch>
         )
     }

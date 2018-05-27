@@ -1,4 +1,7 @@
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
+@import url(~react-image-lightbox/style.css);
+@import url(~slick-carousel/slick/slick.css);
+@import url(~slick-carousel/slick/slick-theme.css);
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6419,9 +6422,35 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-.media {
-  position: relative; }
-  .media > .tag {
+.card .media {
+  position: relative;
+  padding: 1.5rem 1.5rem 0 1.5rem; }
+  .card .media > .tag {
     position: absolute;
-    right: 0;
-    bottom: 0; }
+    right: 1.5rem !important;
+    bottom: auto !important;
+    top: 1.5rem !important; }
+
+.card .card-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+
+.slick-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; }
+  .slick-slider .slick-list img {
+    position: relative; }
+  .slick-slider .slick-arrow {
+    z-index: 1; }
+  .slick-slider .slick-prev {
+    left: 5px; }
+  .slick-slider .slick-next {
+    right: 5px; }

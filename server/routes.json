@@ -1,4 +1,4 @@
 {
     "/v1/*": "/$1",
-    "/product/:slug": "/product?slug=:slug"
+    "/products/:slug": "/products?slug=:slug"
 }
