@@ -6438,19 +6438,12 @@ label.panel-block {
   top: 0;
   left: 0; }
 
-.slick-slider {
-  position: absolute;
+.slider {
+  position: absolute !important;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%; }
-  .slick-slider .slick-list img {
-    position: relative; }
-  .slick-slider .slick-arrow {
-    z-index: 1; }
-  .slick-slider .slick-prev {
-    left: 5px; }
-  .slick-slider .slick-next {
-    right: 5px; }
+  height: 100% !important; }
+  .slider .slider-frame {
+    height: 100% !important; }
+    .slider .slider-frame .slider-list {
+      height: 100% !important; }

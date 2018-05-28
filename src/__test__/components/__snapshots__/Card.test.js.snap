@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card/> testing 1`] = `
+<div
+  className="card"
+  style={
+    Object {
+      "margin": "1rem",
+    }
+  }
+>
+  <div
+    className="card-image sc-bwzfXH kKJINq"
+  >
+    <figure
+      className="image is-4by3"
+    >
+      <img
+        alt="Unbranded Wooden Chips"
+        src="https://picsum.photos/420/320?image=31"
+      />
+    </figure>
+    <span
+      className="icon wish is-medium "
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-heart"
+      />
+    </span>
+    <span
+      className="icon zoom"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-plus"
+      />
+    </span>
+    <a
+      className="card-link"
+      href="/unbranded-wooden-chips"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="card-content is-paddingless"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-content"
+      >
+        <p
+          className="title is-6"
+        >
+          Unbranded Wooden Chips
+        </p>
+        <p
+          className="subtitle is-6"
+        >
+          Rp 
+          9.837.178
+        </p>
+      </div>
+      <span
+        className="tag is-light"
+      >
+        M, XL, M
+      </span>
+    </div>
+    <div
+      className="sc-bdVaJa kGkkgC"
+    >
+      <div
+        className="rate"
+      >
+        <span
+          className="fa fa-star rate__checked"
+        />
+        <span
+          className="fa fa-star rate__checked"
+        />
+        <span
+          className="fa fa-star "
+        />
+        <span
+          className="fa fa-star "
+        />
+        <span
+          className="fa fa-star "
+        />
+      </div>
+      <button
+        className="button is-danger"
+        onClick={[Function]}
+      >
+        Beli
+      </button>
+    </div>
+  </div>
+</div>
+`;

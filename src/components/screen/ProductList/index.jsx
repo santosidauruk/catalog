@@ -23,14 +23,15 @@ class ProductList extends Component {
 
     getProductList = async () => {
         this.setState({ loading: true })
-        const list = await getProductData(this.state.page, 6)
-        if (list.status === 200) {
-            this.setState((prevState) => ({
-                product: [...prevState.product, ...list.data],
-                page: prevState.page + 1,
-                loading: false,
-            }))
-        }
+        // const list = await getProductData(this.state.page, 6)
+        // console.log(list)
+        // if (list.status === 200) {
+        //     this.setState((prevState) => ({
+        //         product: [...prevState.product, ...list.data],
+        //         page: prevState.page + 1,
+        //         loading: false,
+        //     }))
+        // }
     }
 
     _handleScroll = () => {

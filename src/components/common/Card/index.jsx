@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { RadioInput, Rate } from '../../common'
 import CardImage from './CardImage'
@@ -97,7 +98,18 @@ class Card extends Component {
     }
 }
 
-Card.defaultProps = {
-    data: {},
+Card.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.number,
+        can_be_tried: PropTypes.bool,
+        images: PropTypes.array,
+        name: PropTypes.string,
+        price: PropTypes.string,
+        rate: PropTypes.number,
+        slug: PropTypes.string,
+        stocks: PropTypes.object,
+    }),
+    detailed: PropTypes.bool,
 }
+
 export default Card

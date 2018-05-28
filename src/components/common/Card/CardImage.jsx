@@ -1,18 +1,10 @@
 import React, { Component } from 'react'
 import Link from 'react-router-dom/Link'
+import Carousel from 'nuka-carousel'
 
 import Lightbox from 'react-image-lightbox'
-import Slider from 'react-slick'
 
 import { CardImageContent } from './style'
-
-const sliderSettings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-}
 
 class CardImage extends Component {
     state = {
@@ -34,9 +26,9 @@ class CardImage extends Component {
                     If not, just show the first image */}
                 <figure className="image is-4by3">
                     {hasSlider ? (
-                        <Slider {...sliderSettings}>
+                        <Carousel>
                             {imgSrc.map((item) => <img src={item} alt={imgName} key={item} />)}
-                        </Slider>
+                        </Carousel>
                     ) : (
                         <img src={imgSrc[0]} alt={imgName} />
                     )}
