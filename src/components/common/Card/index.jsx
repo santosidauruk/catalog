@@ -8,7 +8,33 @@ import { CardContent } from './style'
 class Card extends Component {
     state = {
         isBuying: false,
+        stocksStatus: {},
     }
+    componentDidMount() {
+        const stocksStatus = {}
+        Object.keys(this.props.data.stocks)
+            .filter((item) => this.props.data.stocks[item].length > 0)
+            .map((item) => (stocksStatus[item] = false))
+
+        this.setState({ stocksStatus })
+    }
+
+    _handleRadioInput = (radioItem) => {
+        const stocksStatus = {
+            ...this.state.stocksStatus,
+            [radioItem]: true,
+        }
+        this.setState({ stocksStatus })
+    }
+
+    _checkAllObjectValue = (obj) => {
+        for (let o in obj) {
+            if (!obj[o]) return false
+        }
+
+        return true
+    }
+
     render() {
         const { data, detailed } = this.props
         return (
@@ -34,15 +60,25 @@ class Card extends Component {
                                     title="Warna yang bisa kamu pilih"
                                     inputs={data.stocks.colors}
                                     name="productColor"
+                                    onChange={() => this._handleRadioInput('colors')}
                                 />
                                 {data.stocks.sizes.length > 0 && (
                                     <RadioInput
                                         title="Size yang bisa kamu pilih"
                                         inputs={data.stocks.sizes}
                                         name="productSize"
+                                        onChange={() => this._handleRadioInput('sizes')}
                                     />
                                 )}
-                                <button className="button is-danger">Beli</button>
+                                <button
+                                    className="button is-danger"
+                                    disabled={
+                                        this._checkAllObjectValue(this.state.stocksStatus)
+                                            ? false
+                                            : true
+                                    }>
+                                    Beli
+                                </button>
                             </div>
                         ) : (
                             <React.Fragment>
