@@ -10,7 +10,7 @@ To install all of depedencies in this project
 
 ### `yarn serve`
 
-Run json-server for API
+Run json-server for API. <br>
 Open http://localhost:8080/v1/products/ to view it in the browser
 
 ### `yarn start`
