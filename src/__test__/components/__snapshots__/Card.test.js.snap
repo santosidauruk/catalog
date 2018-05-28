@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Card/> testing 1`] = `
+exports[`<Card/> testing should rendered correctly 1`] = `
 <div
   className="card"
   style={

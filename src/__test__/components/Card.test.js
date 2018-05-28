@@ -23,12 +23,14 @@ const data = {
     },
 }
 
-test('<Card/> testing', () => {
-    const component = renderer.create(
-        <BrowserRouter>
-            <Card data={data} />
-        </BrowserRouter>
-    )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+describe('<Card/> testing', () => {
+    it('should rendered correctly', () => {
+        const component = renderer.create(
+            <BrowserRouter>
+                <Card data={data} />
+            </BrowserRouter>
+        )
+        let tree = component.toJSON()
+        expect(tree).toMatchSnapshot()
+    })
 })

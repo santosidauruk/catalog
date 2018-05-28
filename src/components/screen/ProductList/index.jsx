@@ -12,8 +12,8 @@ class ProductList extends Component {
         loading: false,
     }
 
-    componentDidMount() {
-        this.getProductList()
+    async componentDidMount() {
+        await this.getProductList()
         window.addEventListener('scroll', this._handleScroll)
     }
 
@@ -21,7 +21,7 @@ class ProductList extends Component {
         window.removeEventListener('scroll', this._handleScroll)
     }
 
-    getProductList = async () => {
+    async getProductList() {
         this.setState({ loading: true })
         // const list = await getProductData(this.state.page, 6)
         // console.log(list)

@@ -1,15 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
 import BrowserRouter from 'react-router-dom/BrowserRouter'
 import App from '../components/App'
 
-it('renders without crashing', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>,
-        div
-    )
-    ReactDOM.unmountComponentAtNode(div)
+describe('App testing', () => {
+    it('should rendered correctly', () => {
+        const component = renderer.create(
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        )
+        let tree = component.toJSON()
+        expect(tree).toMatchSnapshot()
+    })
 })
