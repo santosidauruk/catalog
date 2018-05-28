@@ -6,11 +6,12 @@ In the project directory, you can run:
 
 ### `yarn`
 
-To install all depedencies in this project
+To install all of depedencies in this project
 
 ### `yarn serve`
 
 Run json-server for API
+Open http://localhost:8080/v1/products/ to view it in the browser
 
 ### `yarn start`
 
