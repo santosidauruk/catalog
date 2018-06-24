@@ -1,4 +1,4 @@
-This project is created for Software Engineer Product Technical Assessment in SaleStock
+This project is a simple webapp to see a list of product and the detail of each product
 
 ## Available Scripts
 

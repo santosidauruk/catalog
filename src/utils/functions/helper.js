@@ -24,11 +24,15 @@ const Nothing = () => ({
     orJust: (v) => v,
 })
 
-class Maybe {
-    static of(val) {
-        if (!val) return Nothing()
-        return Just(val)
-    }
+// class Maybe {
+//     static of(val) {
+//         if (!val) return Nothing()
+//         return Just(val)
+//     }
+// }
+
+const Maybe = {
+    of: (val) => (!val ? Nothing() : Just(val)),
 }
 
 export { Maybe, Just, Nothing }
